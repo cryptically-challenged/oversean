@@ -2,12 +2,13 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import Hero from "../components/hero";
+import Navbar from "../components/navbar";
 
 const Home: NextPage = () => {
+  const [disabled1, setDisabled1] = useState<boolean>(true);
+  const [disabled2, setDisabled2] = useState<boolean>(true);
 
-  const [disabled1,setDisabled1]=useState<boolean>(true);
-  const [disabled2,setDisabled2]=useState<boolean>(true);
-  
   return (
     <>
       {/* <button className="btn shadow-solid">content</button>
@@ -27,16 +28,18 @@ const Home: NextPage = () => {
       <br />
       <div className="card shadow-solid-div"></div> */}
 
-<div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <div className="w-5/6">
-          <div className="flex justify-between ... py-3">
-            <div className="">
+          <div className="... flex justify-between py-3">
+            <div className=""></div>
 
-            </div>
-
-            <div className="flex space-x-12 ml-auto mr-32 ...">
-              <button className="text-xl" disabled={disabled1}>Placeholder</button>
-              <button className="text-xl" disabled={disabled2}>Placeholder</button>
+            <div className="... ml-auto mr-32 flex space-x-12">
+              <button className="text-xl" disabled={disabled1}>
+                Placeholder
+              </button>
+              <button className="text-xl" disabled={disabled2}>
+                Placeholder
+              </button>
             </div>
 
             <div className="">
@@ -46,7 +49,9 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <Navbar />
+      <Hero />
     </>
   );
 };

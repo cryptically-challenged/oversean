@@ -7,10 +7,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        blue: "#117eff",
-        yellow: "#f5b127",
-        pink: "#f64a89",
-        black: "#000000",
+        overseanBlue: "#117eff",
+        overseanYellow: "#f5b127",
+        overseanPink: "#f64a89",
+        overseanBlack: "#000000",
       },
     },
   },
