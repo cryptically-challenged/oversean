@@ -15,7 +15,7 @@
 }
 
 .card {
-  @apply bg-blue border-2 border-black py-2 px-4 text-3xl;
+  @apply border-2 border-black bg-blue py-2 px-4 text-3xl;
 }
 
 .streamline {
@@ -24,6 +24,10 @@
 
 .shadow-solid {
   box-shadow: 3px 3px black;
+  border-radius: 10px;
+}
+.shadow-solid-reverse {
+  box-shadow: 3px 3px wheat;
   border-radius: 10px;
 }
 
@@ -35,6 +39,15 @@
 .shadow-solid-div {
   box-shadow: 5px 5px black;
   border-radius: 3px;
+}
+.shadow-solid-curve-btn {
+  box-shadow: 2px 2px black;
+  border-radius: 20px;
+}
+
+.shadow-solid-div-btn {
+  box-shadow: 2px 2px black;
+  border-radius: 1px;
 }
 
 textarea:focus,
