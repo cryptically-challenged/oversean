@@ -79,7 +79,7 @@ export default function Faq() {
   };
   console.log(active === "solana" ? "rounded-submit" : "btn-submit-gray");
   return (
-    <div className="mt-20 flex justify-center">
+    <div className="mt-20 mb-10 flex justify-center">
       <div className="card shadow-solid-curve h-auto w-5/6">
         <div className="flex justify-center">
           <div className="mt-5 flex space-x-10">
@@ -87,8 +87,8 @@ export default function Faq() {
               id="website"
               className={
                 active === "website"
-                  ? "shadow-solid-curve-btn"
-                  : "shadow-solid-div-btn"
+                  ? "shadow-solid-curve-btn bg-yellow px-4 py-2"
+                  : "shadow-solid-div-btn bg-blue px-4 py-2"
               }
               onClick={handleActive}
             >
@@ -98,8 +98,8 @@ export default function Faq() {
               id="arweave"
               className={
                 active === "arweave"
-                  ? "shadow-solid-curve-btn"
-                  : "shadow-solid-div-btn"
+                  ? "shadow-solid-curve-btn bg-yellow px-4 py-2"
+                  : "shadow-solid-div-btn bg-blue px-4 py-2"
               }
               onClick={handleActive}
             >
@@ -109,8 +109,8 @@ export default function Faq() {
               id="solana"
               className={
                 active === "solana"
-                  ? "shadow-solid-curve-btn"
-                  : "shadow-solid-div-btn"
+                  ? "shadow-solid-curve-btn bg-yellow px-4 py-2"
+                  : "shadow-solid-div-btn bg-blue px-4 py-2"
               }
               onClick={handleActive}
             >
@@ -118,9 +118,9 @@ export default function Faq() {
             </button>
           </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 mb-10">
           {temp.map((item, index) => {
-            return <Accordion title={item.title} content={item.content} />;
+            return <Accordion key={index} title={item.title} content={item.content} />;
           })}
         </div>
       </div>

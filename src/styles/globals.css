@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap%27');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +9,7 @@
 }
 
 .btn-submit {
-  @apply h-12 w-auto border-2 border-black py-2 px-4 text-xl;
+  @apply h-12 w-auto border-2 border-black py-1 px-4 text-3xl;
 }
 
 .input-text {
@@ -22,12 +24,16 @@
   @apply bg-blue border-2 border-black py-2 px-4 text-5xl;
 }
 
+.streamline-adv {
+  @apply bg-blue border-2 border-black py-2 px-4 text-3xl;
+}
+
 .shadow-solid {
-  box-shadow: 3px 3px black;
+  box-shadow: 5px 5px black;
   border-radius: 10px;
 }
 .shadow-solid-reverse {
-  box-shadow: 3px 3px wheat;
+  box-shadow: 5px 5px wheat;
   border-radius: 10px;
 }
 

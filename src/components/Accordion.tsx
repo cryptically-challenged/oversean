@@ -16,10 +16,10 @@ const Accordion = ({ title, content }: AccordionProps) => {
   return (
     <div
       onClick={HandleOpening}
-      className="shadow-solid-reverse mx-auto mt-10 w-5/6"
+      className="shadow-solid-reverse mx-auto mt-10 w-5/6 px-2 py-4"
     >
       <div className={"flex justify-between"}>
-        <h4 className="ml-5 text-lg font-semibold text-white">{title}</h4>
+        <h4 className="ml-5 text-lg font-semibold text-white text-3xl">{title}</h4>
         {isOpened ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ const Accordion = ({ title, content }: AccordionProps) => {
         style={{ height: height }}
         className="overflow-hidden transition-all duration-300"
       >
-        <p className="p-4 text-lg">{content}</p>
+        <p className="p-4 text-2xl">{content}</p>
       </div>
     </div>
   );
