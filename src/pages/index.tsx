@@ -1,11 +1,42 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const [disabled1, setDisabled1] = useState<boolean>(true);
   const [disabled2, setDisabled2] = useState<boolean>(true);
+
+  const [walletAddress, setWalletAddress] = useState(null);
+
+  const checkIfWalletIsConnected = async () => {
+    if (window?.solana?.isPhantom) {
+      console.log("Phantom wallet found!");
+
+      //this is for auto connect
+      const response = await window.solana.connect({ onlyIfTrusted: true });
+      console.log("Connected with Public Key:", response.publicKey.toString());
+      setWalletAddress(response.publicKey.toString());
+    } else {
+      alert("Solana object not found! Get a Phantom Wallet 👻");
+    }
+  };
+  const connectWallet = async () => {
+    const { solana } = window;
+    if (solana) {
+      const response = await solana.connect();
+      console.log("Connected with Public Key:", response.publicKey.toString());
+      setWalletAddress(response.publicKey.toString());
+    }
+  };
+  //USE EFFECTS
+  useEffect(() => {
+    const onLoad = async () => {
+      await checkIfWalletIsConnected();
+    };
+    window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
 
   return (
     <>
@@ -25,7 +56,7 @@ const Home: NextPage = () => {
             </div>
 
             <div className="">
-              <button type="submit" className="btn-submit shadow-solid-curve">
+              <button onClick={connectWallet} type="submit" className="btn-submit shadow-solid-curve">
                 Connect
               </button>
             </div>
@@ -35,11 +66,11 @@ const Home: NextPage = () => {
       {/* Main Page */}
       <div className="my-10 flex justify-center">
         <div className="flex w-5/6">
-          <div className="w-1/2 mr-2.5">
+          <div className="mr-2.5 w-1/2">
             <div className="h-1/2 w-full bg-blue"></div>
             <div className="card shadow-solid-curve h-1/2 w-full"></div>
           </div>
-          <div className="w-1/2 ml-2.5">
+          <div className="ml-2.5 w-1/2">
             <div className="card shadow-solid-div h-screen"></div>
           </div>
         </div>
