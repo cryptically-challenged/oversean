@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import Feedback from "../components/faq";
 const Home: NextPage = () => {
   const [disabled1, setDisabled1] = useState<boolean>(true);
   const [disabled2, setDisabled2] = useState<boolean>(true);
@@ -56,7 +56,11 @@ const Home: NextPage = () => {
             </div>
 
             <div className="">
-              <button onClick={connectWallet} type="submit" className="btn-submit shadow-solid-curve">
+              <button
+                onClick={connectWallet}
+                type="submit"
+                className="btn-submit shadow-solid-curve"
+              >
                 Connect
               </button>
             </div>
@@ -84,11 +88,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* Contact Us Page */}
-      <div className="mt-20 flex justify-center">
-        <div className="card shadow-solid-curve h-96 w-5/6">
-
-        </div>
-      </div>
+      <Feedback />
       {/* Footer */}
     </div>
   );
