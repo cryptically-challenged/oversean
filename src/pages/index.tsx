@@ -86,7 +86,7 @@ const Home: NextPage = () => {
       {/* Contact Us Page */}
       <div className="mt-20 flex justify-center">
         <div className="card shadow-solid-curve h-96 w-5/6">
-          
+
         </div>
       </div>
       {/* Footer */}
