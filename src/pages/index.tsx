@@ -39,7 +39,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-gradient-to-r from-violet-700 to-fuchsia-400">
       {/* Navigation Bar */}
       <div className="flex justify-center">
         <div className="w-5/6">
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
       <div className="my-10 flex justify-center">
         <div className="flex w-5/6">
           <div className="mr-2.5 w-1/2">
-            <div className="h-1/2 w-full bg-blue"></div>
+            <div className="h-1/2 w-full"></div>
             <div className="card shadow-solid-curve h-1/2 w-full"></div>
           </div>
           <div className="ml-2.5 w-1/2">
@@ -84,11 +84,13 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* Contact Us Page */}
-      <div className="my-20 flex justify-center">
-        <div className="card shadow-solid-curve h-96 w-5/6"></div>
+      <div className="mt-20 flex justify-center">
+        <div className="card shadow-solid-curve h-96 w-5/6">
+          
+        </div>
       </div>
       {/* Footer */}
-    </>
+    </div>
   );
 };
 
