@@ -8,13 +8,13 @@ import DocumentLogo from "./document.jpg";
 import CollegeLogo from "./college.png";
 import Faq from "../components/faq";
 import Image1 from "./d.png";
-import Image2 from "./e.png"
+import Image2 from "./e.png";
 
 const Home: NextPage = () => {
   const [disabled1, setDisabled1] = useState<boolean>(true);
   const [disabled2, setDisabled2] = useState<boolean>(true);
-
-  const [walletAddress, setWalletAddress] = useState(null);
+  const [load, setLoad] = useState(false);
+  const [walletAddress, setWalletAddress] = useState<String>("");
 
   const checkIfWalletIsConnected = async () => {
     if (window?.solana?.isPhantom) {
@@ -29,11 +29,20 @@ const Home: NextPage = () => {
     }
   };
   const connectWallet = async () => {
+    setLoad(true);
     const { solana } = window;
     if (solana) {
       const response = await solana.connect();
       console.log("Connected with Public Key:", response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
+    }
+  };
+  const disconnectWallet = async () => {
+    const { solana } = window;
+    if (solana) {
+      const response = await solana.disconnect();
+
+      setWalletAddress("");
     }
   };
   //USE EFFECTS
@@ -44,9 +53,10 @@ const Home: NextPage = () => {
     window.addEventListener("load", onLoad);
     return () => window.removeEventListener("load", onLoad);
   }, []);
+  //disconnect solana wallet
 
   return (
-    <div className="bg-gradient-to-r from-violet-700 to-fuchsia-400 h-fill">
+    <div className="h-fill bg-gradient-to-r from-violet-700 to-fuchsia-400">
       {/* Navigation Bar */}
       <div className="flex justify-center">
         <div className="w-5/6">
@@ -68,8 +78,18 @@ const Home: NextPage = () => {
                 type="submit"
                 className="btn-submit shadow-solid-curve bg-yellow"
               >
-                Connect
+                {walletAddress ? walletAddress?.slice(0, 9) + "..." : "Connect"}
               </button>
+
+              {walletAddress && (
+                <button
+                  onClick={disconnectWallet}
+                  type="submit"
+                  className="btn-submit shadow-solid-curve ml-3 bg-yellow"
+                >
+                  {"disconnect"}
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -88,7 +108,7 @@ const Home: NextPage = () => {
                     <span className="streamline shadow-solid-div">
                       STREAMLINE
                     </span>{" "}
-                    college <span>applicadtions with blockchain.</span>
+                    college <span>applications with blockchain.</span>
                   </span>
                 </div>
                 <br />
@@ -115,12 +135,12 @@ const Home: NextPage = () => {
                   </span>
                 </div>
                 <div className="imgdiv mt-5 mb-5">
-                <Image
-                  src={Image2}
-                  alt=""
-                  layout="responsive"
-                  objectFit="contain"
-                />
+                  <Image
+                    src={Image2}
+                    alt=""
+                    layout="responsive"
+                    objectFit="contain"
+                  />
                 </div>
               </div>
             </div>
@@ -157,8 +177,8 @@ const Home: NextPage = () => {
                       </svg>
                     </span>
                     Increased security: Documents are securely saved and
-                    encrypted on Arweave&apos;s blockchain-based data storage system,
-                    making them difficult to modify or remove.
+                    encrypted on Arweave&apos;s blockchain-based data storage
+                    system, making them difficult to modify or remove.
                   </li>
                   <li className="text-body-color mb-4 flex text-4xl">
                     <span className="text-primary mr-2 flex items-center rounded-full text-base">
