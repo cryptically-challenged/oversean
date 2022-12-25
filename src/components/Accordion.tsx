@@ -16,7 +16,7 @@ const Accordion = ({ title, content }: AccordionProps) => {
   return (
     <div
       onClick={HandleOpening}
-      className="shadow-solid-reverse mx-auto mt-10 w-5/6 px-2 py-4"
+      className="shadow-solid-reverse mx-auto mt-10 w-5/6 px-1 py-3"
     >
       <div className={"flex justify-between"}>
         <h4 className="ml-5 text-lg font-semibold text-white text-3xl">{title}</h4>
@@ -29,7 +29,7 @@ const Accordion = ({ title, content }: AccordionProps) => {
             className="h-6 w-6"
           >
             <path
-              stroke-linecap="round"
+              strokeLinecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               d="M19 9l-7 7-7-7"
@@ -44,7 +44,7 @@ const Accordion = ({ title, content }: AccordionProps) => {
             className="h-6 w-6"
           >
             <path
-              stroke-linecap="round"
+              strokeLinecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               d="M9 5l7 7-7 7"

@@ -77,9 +77,8 @@ export default function Faq() {
       setTemp(solana);
     }
   };
-  console.log(active === "solana" ? "rounded-submit" : "btn-submit-gray");
   return (
-    <div className="mt-20 mb-10 flex justify-center">
+    <div className="mt-20 flex justify-center">
       <div className="card shadow-solid-curve h-auto w-5/6">
         <div className="flex justify-center">
           <div className="mt-5 flex space-x-10">

@@ -46,7 +46,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-violet-700 to-fuchsia-400">
+    <div className="bg-gradient-to-r from-violet-700 to-fuchsia-400 h-fill">
       {/* Navigation Bar */}
       <div className="flex justify-center">
         <div className="w-5/6">
