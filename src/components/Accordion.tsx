@@ -7,11 +7,11 @@ type AccordionProps = {
 const Accordion = ({ title, content }: AccordionProps) => {
   const [isOpened, setOpened] = useState<boolean>(false);
   const [height, setHeight] = useState<string>("0px");
-  const contentElement = useRef(null);
+  const contentElement = useRef<any>(null);
 
   const HandleOpening = () => {
     setOpened(!isOpened);
-    setHeight(!isOpened ? `${contentElement.current.scrollHeight}px` : "0px");
+    setHeight(!isOpened ? `${contentElement?.current?.scrollHeight}px` : "0px");
   };
   return (
     <div

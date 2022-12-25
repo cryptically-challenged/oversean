@@ -67,7 +67,7 @@ export default function Faq() {
 
   const [temp, setTemp] = useState(website);
   const [active, setActive] = useState("website");
-  const handleActive = (e) => {
+  const handleActive = (e: any) => {
     setActive(e.target.id);
     if (e.target.id === "website") {
       setTemp(website);
@@ -120,7 +120,13 @@ export default function Faq() {
         </div>
         <div className="mt-10 mb-10">
           {temp.map((item, index) => {
-            return <Accordion key={index} title={item.title} content={item.content} />;
+            return (
+              <Accordion
+                key={index}
+                title={item.title}
+                content={item.content}
+              />
+            );
           })}
         </div>
       </div>
