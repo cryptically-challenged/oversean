@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const [disabled1, setDisabled1] = useState<boolean>(true);
   const [disabled2, setDisabled2] = useState<boolean>(true);
   const [load, setLoad] = useState(false);
-  const [walletAddress, setWalletAddress] = useState<String>("");
+  const [walletAddress, setWalletAddress] = useState<string>("");
 
   const checkIfWalletIsConnected = async () => {
     if (window?.solana?.isPhantom) {
